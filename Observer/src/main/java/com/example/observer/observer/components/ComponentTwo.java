@@ -15,7 +15,7 @@ public class ComponentTwo implements Observer {
     private boolean isActive = false;
 
     public ComponentTwo() {
-        // Инициализация медиаплеера
+        //Запуск/иниц медиаплеера
         try {
             String musicFile = "src/main/resources/music.mp3";
             Media sound = new Media(new File(musicFile).toURI().toString());
@@ -53,7 +53,6 @@ public class ComponentTwo implements Observer {
 
         int currentTime = subject.getState();
 
-        // Проверяем, настало ли время для проигрывания
         if (currentTime >= lastPlayTime + playInterval) {
             mediaPlayer.stop();
             mediaPlayer.play();
