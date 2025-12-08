@@ -12,13 +12,13 @@ public class TimeServer implements Subject {
     private boolean isActive = false;
     private final List<Observer> observers = new ArrayList<>();
 
-    private static final int DELAY = 0; // начальная задержка (мс)
-    private static final int PERIOD = 1000; // период обновления (1 секунда)
+    private static final int DELAY = 0; //начальная задержка (мс)
+    private static final int PERIOD = 1000; //период обновления (1 секунда)
 
 
 
     public TimeServer() {
-        // Конструктор без автоматического запуска
+        //автозапуск нужен?
     }
 
     public void start() {
