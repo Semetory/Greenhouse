@@ -9,7 +9,7 @@ import java.io.File;
 
 public class ComponentTwo implements Observer {
     private Subject subject;
-    private int playInterval = 10; // играть каждые 10 секунд
+    private int playInterval = 10; //кд 10 сек
     private int lastPlayTime = 0;
     private MediaPlayer mediaPlayer;
     private boolean isActive = false;
