@@ -26,13 +26,13 @@ public class CombinedEffects {
         innerShadow.setOffsetX(2);
         innerShadow.setOffsetY(2);
 
-        // 3. Создаем Lighting (освещение)
+        //Создание Lighting
         Lighting lighting = new Lighting();
         lighting.setLight(new javafx.scene.effect.Light.Distant(45, 45, Color.WHITE));
         lighting.setSurfaceScale(5.0);
         lighting.setDiffuseConstant(1.5);
 
-        // 4. Создаем PerspectiveTransform (перспектива)
+        //Создание PerspectiveTransform
         PerspectiveTransform perspective = new PerspectiveTransform();
         perspective.setUlx(0);
         perspective.setUly(0);
@@ -43,28 +43,25 @@ public class CombinedEffects {
         perspective.setLlx(10);
         perspective.setLly(30);
 
-        // 5. Комбинируем эффекты через Blend
+        //Комбинируем эффекты через Blend
         Blend blend = new Blend();
         blend.setMode(BlendMode.MULTIPLY);
         blend.setTopInput(perspective);
         blend.setBottomInput(lighting);
 
-        // Устанавливаем цепочку эффектов
+        //цепочка эффектов
         perspective.setInput(innerShadow);
         innerShadow.setInput(dropShadow);
 
         return blend;
     }
 
-    /**
-     * Создает эффект пульсации для активного элемента
-     */
     public static javafx.scene.effect.Effect createPulsatingEffect() {
         DropShadow pulsatingShadow = new DropShadow();
         pulsatingShadow.setColor(Color.rgb(255, 100, 100, 0.8));
         pulsatingShadow.setRadius(15);
 
-        // Анимация пульсации
+        //пульсация 
         javafx.animation.Timeline pulse = new javafx.animation.Timeline(
                 new javafx.animation.KeyFrame(javafx.util.Duration.ZERO,
                         new javafx.animation.KeyValue(pulsatingShadow.radiusProperty(), 10),
