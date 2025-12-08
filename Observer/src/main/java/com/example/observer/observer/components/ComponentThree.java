@@ -10,7 +10,7 @@ import javafx.util.Duration;
 public class ComponentThree implements Observer {
     private Subject subject;
     private Circle animationCircle;
-    private int animationInterval = 20; // анимация каждые 20 секунд
+    private int animationInterval = 20; //cooldown анимации 20 сек 
     private int lastAnimationTime = 0;
     private boolean isActive = false;
 
@@ -43,7 +43,6 @@ public class ComponentThree implements Observer {
 
         int currentTime = subject.getState();
 
-        // Проверяем, настало ли время для анимации
         if (currentTime >= lastAnimationTime + animationInterval) {
             Platform.runLater(this::playAnimation);
             lastAnimationTime = currentTime;
