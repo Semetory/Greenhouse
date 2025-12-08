@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1300, 600);
 
-        stage.setTitle("Сервер времени с паттерном Наблюдатель");
+        stage.setTitle("Паттерн наблюдатель");
         stage.setScene(scene);
         stage.show();
     }
