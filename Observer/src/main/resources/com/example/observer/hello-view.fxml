@@ -19,7 +19,7 @@
             fx:controller="com.example.observer.HelloController">
 
     <top>
-        <Label text="Панель управления сервером времени"
+        <Label text="Патерн наблюдатель"
                style="-fx-font-weight: bold; -fx-font-size: 16pt; -fx-text-fill: linear-gradient(to right, #2196F3, #4CAF50);">
             <padding>
                 <Insets top="10" bottom="10" left="10" right="10"/>
@@ -59,7 +59,7 @@
                     <DropShadow radius="10" offsetX="5" offsetY="5" color="rgba(0,0,0,0.3)"/>
                 </effect>
 
-                <Label text="Рабочая панель компонента 1"
+                <Label text="Компонент 1"
                        style="-fx-font-weight: bold; -fx-font-size: 16pt; -fx-text-fill: #2196F3;"/>
 
                 <Label fx:id="timeLabel" text="Прошло 0 секунд"
@@ -67,7 +67,7 @@
 
                 <Separator style="-fx-padding: 10 0;"/>
 
-                <Label text="Панель инструментов компонента 1"
+                <Label text="Инструменты компонента 1"
                        style="-fx-font-weight: bold; -fx-font-size: 12pt;"/>
 
                 <HBox spacing="30" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
@@ -94,7 +94,7 @@
                     <DropShadow radius="10" offsetX="5" offsetY="5" color="rgba(204, 51, 51, 0.3)"/>
                 </effect>
 
-                <Label text="Рабочая панель компонента 2"
+                <Label text="Компонент 2"
                        style="-fx-font-weight: bold; -fx-font-size: 16pt; -fx-text-fill: #E91E63;"/>
 
                 <Label text="Музыкальный проигрыватель"
@@ -102,7 +102,7 @@
 
                 <Separator style="-fx-padding: 10 0;"/>
 
-                <Label text="Панель инструментов компонента 2"
+                <Label text="Инструменты компонента 2"
                        style="-fx-font-weight: bold; -fx-font-size: 12pt;"/>
 
                 <HBox spacing="30" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
@@ -112,7 +112,7 @@
                        -fx-background-color: #9C27B0; -fx-text-fill: white;
                        -fx-background-radius: 5;"/>
 
-                    <Button text="ВЫКЛЮЧИТЬ" fx:id="comp2StopBtn"
+                    <Button text="Выключить" fx:id="comp2StopBtn"
                             prefWidth="130" prefHeight="45"
                             style="-fx-font-size: 14pt; -fx-font-weight: bold;
                        -fx-background-color: #673AB7; -fx-text-fill: white;
