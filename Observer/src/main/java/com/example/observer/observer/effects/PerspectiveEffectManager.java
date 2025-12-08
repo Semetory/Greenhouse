@@ -6,47 +6,41 @@ import javafx.util.Duration;
 
 public class PerspectiveEffectManager {
 
-    /**
-     * Создает анимированный эффект PerspectiveTransform для кнопки
-     */
     public static void applyAnimatedPerspectiveEffect(javafx.scene.control.Button button) {
         if (button == null) return;
 
-        // Создаем исходный PerspectiveTransform (без искажения)
+        //исходный PerspectiveTransform без искажения
         PerspectiveTransform perspective = new PerspectiveTransform();
-        perspective.setUlx(0);    // Верхний левый X
-        perspective.setUly(0);    // Верхний левый Y
+        perspective.setUlx(0);    //верхний левый X
+        perspective.setUly(0);    //верхний левый Y
         perspective.setUrx(button.getPrefWidth());  // Верхний правый X
-        perspective.setUry(0);    // Верхний правый Y
-        perspective.setLrx(button.getPrefWidth());  // Нижний правый X
-        perspective.setLry(button.getPrefHeight()); // Нижний правый Y
-        perspective.setLlx(0);    // Нижний левый X
-        perspective.setLly(button.getPrefHeight()); // Нижний левый Y
+        perspective.setUry(0);    //верхний правый Y
+        perspective.setLrx(button.getPrefWidth());  //нижний правый X
+        perspective.setLry(button.getPrefHeight()); //нижний правый Y
+        perspective.setLlx(0);    //нижний левый X
+        perspective.setLly(button.getPrefHeight()); //нижний левый Y
 
         button.setEffect(perspective);
 
-        // Анимация при наведении мыши
+        //анимация при наведении мыши
         button.setOnMouseEntered(e -> {
             animatePerspective(perspective,
-                    0, 0,                            // UL
-                    button.getPrefWidth() + 20, 0,   // UR (растягиваем вправо)
-                    button.getPrefWidth() - 10, button.getPrefHeight(), // LR
-                    -10, button.getPrefHeight());    // LL (сдвигаем влево)
+                    0, 0,                            //UL
+                    button.getPrefWidth() + 20, 0,   //UR (растягиваем вправо)
+                    button.getPrefWidth() - 10, button.getPrefHeight(), //LR
+                    -10, button.getPrefHeight());    //LL (сдвигаем влево)
         });
 
-        // Возврат к исходному состоянию при уходе мыши
+        //возврат к исходному состоянию при уходе мыши
         button.setOnMouseExited(e -> {
             animatePerspective(perspective,
-                    0, 0,                            // UL
-                    button.getPrefWidth(), 0,        // UR
-                    button.getPrefWidth(), button.getPrefHeight(), // LR
-                    0, button.getPrefHeight());      // LL
+                    0, 0,                            //UL
+                    button.getPrefWidth(), 0,        //UR
+                    button.getPrefWidth(), button.getPrefHeight(), //LR
+                    0, button.getPrefHeight());      //LL
         });
     }
 
-    /**
-     * Анимирует изменение PerspectiveTransform
-     */
     private static void animatePerspective(PerspectiveTransform perspective,
                                            double ulx, double uly,
                                            double urx, double ury,
@@ -77,9 +71,6 @@ public class PerspectiveEffectManager {
         timeline.play();
     }
 
-    /**
-     * Создает статический PerspectiveTransform для заголовка
-     */
     public static PerspectiveTransform createTitlePerspective() {
         PerspectiveTransform perspective = new PerspectiveTransform();
         perspective.setUlx(0);      // Верхний левый X
