@@ -10,11 +10,8 @@ import javafx.scene.paint.Color;
 
 public class CombinedEffects {
 
-    /**
-     * Создает комбинированный эффект для активного состояния
-     */
     public static javafx.scene.effect.Effect createActiveServerEffect() {
-        // 1. Создаем DropShadow (внешняя тень)
+        //Создание DropShadow
         DropShadow dropShadow = new DropShadow();
         dropShadow.setColor(Color.rgb(0, 150, 255, 0.7));
         dropShadow.setRadius(10);
@@ -22,7 +19,7 @@ public class CombinedEffects {
         dropShadow.setOffsetY(0);
         dropShadow.setSpread(0.5);
 
-        // 2. Создаем InnerShadow (внутренняя тень)
+        //Создание InnerShadow 
         InnerShadow innerShadow = new InnerShadow();
         innerShadow.setColor(Color.rgb(0, 100, 200, 0.5));
         innerShadow.setRadius(5);
