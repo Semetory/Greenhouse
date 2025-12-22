@@ -7,13 +7,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
 
 <?import javafx.scene.effect.PerspectiveTransform?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.observer.HelloController">
@@ -25,16 +22,8 @@
                 <Insets top="10" bottom="10" left="10" right="10"/>
             </padding>
             <effect>
-                <PerspectiveTransform ulx="0" uly="-5" urx="400" ury="5"
+                <PerspectiveTransform uly="-5" urx="400" ury="5"
                                       lrx="380" lry="40" llx="20" lly="30">
-                    <!--
-                    PerspectiveTransform создает 3D-перспективу:
-                    - ulx, uly: верхний левый угол
-                    - urx, ury: верхний правый угол
-                    - lrx, lry: нижний правый угол
-                    - llx, lly: нижний левый угол
-                    Смещая углы, создаем эффект наклона
-                    -->
                     <input>
                         <DropShadow radius="5.0" offsetX="3.0" offsetY="3.0"
                                     color="rgba(0, 0, 0, 0.5)"/>
@@ -56,7 +45,7 @@
              -fx-background-color: #f0f8ff; -fx-border-radius: 5; -fx-background-radius: 5;">
 
                 <effect>
-                    <DropShadow radius="10" offsetX="5" offsetY="5" color="rgba(0,0,0,0.3)"/>
+                    <DropShadow offsetX="5" offsetY="5" color="rgba(0,0,0,0.3)"/>
                 </effect>
 
                 <Label text="Рабочая панель компонента 1"
@@ -67,31 +56,15 @@
 
                 <Separator style="-fx-padding: 10 0;"/>
 
-                <Label text="Панель инструментов компонента 1"
-                       style="-fx-font-weight: bold; -fx-font-size: 12pt;"/>
+          </VBox>
 
-                <HBox spacing="30" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
-                    <Button text="СТАРТ" fx:id="comp1StartBtn"
-                            prefWidth="130" prefHeight="45"
-                            style="-fx-font-size: 14pt; -fx-font-weight: bold;
-                       -fx-background-color: #4CAF50; -fx-text-fill: white;
-                       -fx-background-radius: 5;"/>
-
-                    <Button text="СТОП" fx:id="comp1StopBtn"
-                            prefWidth="130" prefHeight="45"
-                            style="-fx-font-size: 14pt; -fx-font-weight: bold;
-                       -fx-background-color: #f44336; -fx-text-fill: white;
-                       -fx-background-radius: 5;"/>
-                </HBox>
-            </VBox>
-
-            <!-- Компонент 2 -->
+          <!-- Компонент 2 -->
             <VBox spacing="15" prefWidth="380" prefHeight="300"
                   style="-fx-border-color: gray; -fx-border-width: 2; -fx-padding: 20;
              -fx-background-color: #fff0f5; -fx-border-radius: 5; -fx-background-radius: 5;">
 
                 <effect>
-                    <DropShadow radius="10" offsetX="5" offsetY="5" color="rgba(204, 51, 51, 0.3)"/>
+                    <DropShadow offsetX="5" offsetY="5" color="rgba(204, 51, 51, 0.3)"/>
                 </effect>
 
                 <Label text="Рабочая панель компонента 2"
@@ -106,13 +79,13 @@
                        style="-fx-font-weight: bold; -fx-font-size: 12pt;"/>
 
                 <HBox spacing="30" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
-                    <Button text="ВКЛЮЧИТЬ" fx:id="comp2StartBtn"
+                    <Button text="ВКЛ" fx:id="comp2StartBtn"
                             prefWidth="130" prefHeight="45"
                             style="-fx-font-size: 14pt; -fx-font-weight: bold;
                        -fx-background-color: #9C27B0; -fx-text-fill: white;
                        -fx-background-radius: 5;"/>
 
-                    <Button text="ВЫКЛЮЧИТЬ" fx:id="comp2StopBtn"
+                    <Button text="ВЫКЛ" fx:id="comp2StopBtn"
                             prefWidth="130" prefHeight="45"
                             style="-fx-font-size: 14pt; -fx-font-weight: bold;
                        -fx-background-color: #673AB7; -fx-text-fill: white;
@@ -133,7 +106,7 @@
              -fx-background-color: #f0fff0; -fx-border-radius: 5; -fx-background-radius: 5;">
 
                 <effect>
-                    <DropShadow radius="10" offsetX="5" offsetY="5" color="rgba(25, 127, 229, 0.3)"/>
+                    <DropShadow offsetX="5" offsetY="5" color="rgba(25, 127, 229, 0.3)"/>
                 </effect>
 
                 <Label text="Рабочая панель компонента 3"
@@ -144,7 +117,7 @@
                             fill="radial-gradient(center 50% 50%, radius 60%, #4CAF50, #2196F3)"
                             AnchorPane.leftAnchor="10" AnchorPane.topAnchor="20">  <!-- 10 у.е. от левой кромки -->
                         <effect>
-                            <DropShadow radius="10" color="rgba(0,0,0,0.3)"/>
+                            <DropShadow color="rgba(0,0,0,0.3)"/>
                         </effect>
                     </Circle>
                 </AnchorPane>
@@ -182,13 +155,13 @@
         <HBox alignment="CENTER" spacing="20"
               style="-fx-background-color: linear-gradient(to right, #ece9e6, #ffffff); -fx-padding: 10;">
             <effect>
-                <DropShadow radius="10.0" offsetX="0.0" offsetY="-3.0" color="rgba(0, 0, 0, 0.3)">
-                    <!-- Тень снизу для панели управления -->
+                <DropShadow offsetY="-3.0" color="rgba(0, 0, 0, 0.3)">
+                    <!--Тень снизу для панели управления-->
                 </DropShadow>
             </effect>
-            <Button text="Старт сервера" fx:id="serverStartBtn" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
-            <Button text="Стоп сервера" fx:id="serverStopBtn" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
-            <Button text="Сброс времени" fx:id="serverResetBtn" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Старт сервера" fx:id="serverStartBtn" style="-fx-background-color: #4CAF50; -fx-text-fill: black;"/>
+            <Button text="Стоп сервера" fx:id="serverStopBtn" style="-fx-background-color: #f44336; -fx-text-fill: black;"/>
+            <Button text="Сброс времени" fx:id="serverResetBtn" style="-fx-background-color: #2196F3; -fx-text-fill: black;"/>
             <Label fx:id="serverStatusLabel" text="Сервер не активен" style="-fx-font-weight: bold;"/>
             <Label fx:id="currentTimeLabel" text="Время: 0 сек" style="-fx-font-weight: bold;"/>
         </HBox>

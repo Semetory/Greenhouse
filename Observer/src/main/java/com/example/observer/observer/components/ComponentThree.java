@@ -1,16 +1,16 @@
 package com.example.observer.observer.components;
 
-import com.example.observer.observer.Observer;
+import com.example.observer.observer.IObserver;
 import com.example.observer.observer.Subject;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-public class ComponentThree implements Observer {
+public class ComponentThree implements IObserver {
     private Subject subject;
     private Circle animationCircle;
-    private int animationInterval = 20; // анимация каждые 20 секунд
+    private int animationInterval = 20; //Повторение анимациии каждые 20 сек
     private int lastAnimationTime = 0;
     private boolean isActive = false;
 
@@ -43,7 +43,7 @@ public class ComponentThree implements Observer {
 
         int currentTime = subject.getState();
 
-        // Проверяем, настало ли время для анимации
+        //Настало ли ... время для анимации
         if (currentTime >= lastAnimationTime + animationInterval) {
             Platform.runLater(this::playAnimation);
             lastAnimationTime = currentTime;

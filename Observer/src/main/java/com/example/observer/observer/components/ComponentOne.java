@@ -1,11 +1,11 @@
 package com.example.observer.observer.components;
 
-import com.example.observer.observer.Observer;
+import com.example.observer.observer.IObserver;
 import com.example.observer.observer.Subject;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
-public class ComponentOne implements Observer {
+public class ComponentOne implements IObserver {
     private final Label timeLabel;
     private Subject subject;
 

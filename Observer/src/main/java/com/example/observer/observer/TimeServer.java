@@ -10,16 +10,12 @@ public class TimeServer implements Subject {
     private Timer timer;
     private TimerTask task;
     private boolean isActive = false;
-    private final List<Observer> observers = new ArrayList<>();
+    private final List<IObserver> observers = new ArrayList<>();
 
-    private static final int DELAY = 0; // начальная задержка (мс)
-    private static final int PERIOD = 1000; // период обновления (1 секунда)
+    private static final int DELAY = 0; //Начальная задержка (мс)
+    private static final int PERIOD = 1000; //Период обновления (1 секунда)
 
-
-
-    public TimeServer() {
-        // Конструктор без автоматического запуска
-    }
+    public TimeServer() { }
 
     public void start() {
         if (!isActive) {
@@ -69,18 +65,18 @@ public class TimeServer implements Subject {
     }
 
     @Override
-    public void attach(Observer observer) {
+    public void attach(IObserver observer) {
         observers.add(observer);
     }
 
     @Override
-    public void detach(Observer observer) {
+    public void detach(IObserver observer) {
         observers.remove(observer);
     }
 
     @Override
     public void notifyAllObservers() {
-        for (Observer observer : observers) {
+        for (IObserver observer : observers) {
             observer.update(this);
         }
     }

@@ -6,13 +6,12 @@ import javafx.util.Duration;
 
 public class PerspectiveEffectManager {
 
-    /**
-     * Создает анимированный эффект PerspectiveTransform для кнопки
-     */
+    /*Создает анимированный эффект PerspectiveTransform для кнопки*/
+
     public static void applyAnimatedPerspectiveEffect(javafx.scene.control.Button button) {
         if (button == null) return;
 
-        // Создаем исходный PerspectiveTransform (без искажения)
+        //Исходный PerspectiveTransform без искажений
         PerspectiveTransform perspective = new PerspectiveTransform();
         perspective.setUlx(0);    // Верхний левый X
         perspective.setUly(0);    // Верхний левый Y
@@ -25,7 +24,7 @@ public class PerspectiveEffectManager {
 
         button.setEffect(perspective);
 
-        // Анимация при наведении мыши
+        //Анимация при наведении мыши
         button.setOnMouseEntered(e -> {
             animatePerspective(perspective,
                     0, 0,                            // UL
@@ -34,7 +33,7 @@ public class PerspectiveEffectManager {
                     -10, button.getPrefHeight());    // LL (сдвигаем влево)
         });
 
-        // Возврат к исходному состоянию при уходе мыши
+        //Возврат к исходному состоянию при уходе мыши
         button.setOnMouseExited(e -> {
             animatePerspective(perspective,
                     0, 0,                            // UL
@@ -44,9 +43,8 @@ public class PerspectiveEffectManager {
         });
     }
 
-    /**
-     * Анимирует изменение PerspectiveTransform
-     */
+    /*Анимирует изменение PerspectiveTransform*/
+
     private static void animatePerspective(PerspectiveTransform perspective,
                                            double ulx, double uly,
                                            double urx, double ury,
@@ -77,19 +75,18 @@ public class PerspectiveEffectManager {
         timeline.play();
     }
 
-    /**
-     * Создает статический PerspectiveTransform для заголовка
-     */
+    /*Статический PerspectiveTransform для заголовка*/
+
     public static PerspectiveTransform createTitlePerspective() {
         PerspectiveTransform perspective = new PerspectiveTransform();
-        perspective.setUlx(0);      // Верхний левый X
-        perspective.setUly(-5);     // Верхний левый Y (немного выше)
-        perspective.setUrx(400);    // Верхний правый X
-        perspective.setUry(5);      // Верхний правый Y (немного ниже)
-        perspective.setLrx(380);    // Нижний правый X (уже)
-        perspective.setLry(40);     // Нижний правый Y
-        perspective.setLlx(20);     // Нижний левый X (сдвиг вправо)
-        perspective.setLly(30);     // Нижний левый Y
+        perspective.setUlx(0);      //Верхний левый X
+        perspective.setUly(-5);     //Верхний левый Y немного выше
+        perspective.setUrx(400);    //Верхний правый X
+        perspective.setUry(5);      //Верхний правый Y немного ниже
+        perspective.setLrx(380);    //Нижний правый X уже
+        perspective.setLry(40);     //Нижний правый Y
+        perspective.setLlx(20);     //Нижний левый X сдвиг вправо
+        perspective.setLly(30);     //Нижний левый Y
         return perspective;
     }
 }

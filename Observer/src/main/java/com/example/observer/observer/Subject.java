@@ -1,11 +1,9 @@
 package com.example.observer.observer;
 
-import java.util.List;
-
 public interface Subject {
-    void notifyAllObservers(); // уведомить всех наблюдателей
-    void attach(Observer obs); // добавить наблюдателя
-    void detach(Observer obs); // удалить наблюдателя
-    int getState(); // получить текущее состояние
-    void setState(int time); // установить состояние
+    void notifyAllObservers(); //Уведомить всех наблюдателей
+    void attach(IObserver obs); //Добавить наблюдателя
+    void detach(IObserver obs); //Удалить наблюдателя
+    int getState(); //Получить текущее состояние
+    void setState(int time); //Установить состояние
 }

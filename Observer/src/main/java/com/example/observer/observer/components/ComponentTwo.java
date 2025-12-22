@@ -1,21 +1,21 @@
 package com.example.observer.observer.components;
 
-import com.example.observer.observer.Observer;
+import com.example.observer.observer.IObserver;
 import com.example.observer.observer.Subject;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 
-public class ComponentTwo implements Observer {
+public class ComponentTwo implements IObserver {
     private Subject subject;
-    private int playInterval = 10; // играть каждые 10 секунд
+    private int playInterval = 10; //Проиигрование каждые 10 секунд
     private int lastPlayTime = 0;
     private MediaPlayer mediaPlayer;
     private boolean isActive = false;
 
     public ComponentTwo() {
-        // Инициализация медиаплеера
+        //Инициализация медиаплеера
         try {
             String musicFile = "src/main/resources/music.mp3";
             Media sound = new Media(new File(musicFile).toURI().toString());
@@ -53,7 +53,7 @@ public class ComponentTwo implements Observer {
 
         int currentTime = subject.getState();
 
-        // Проверяем, настало ли время для проигрывания
+        //Настало ли ... время для проигрывания
         if (currentTime >= lastPlayTime + playInterval) {
             mediaPlayer.stop();
             mediaPlayer.play();

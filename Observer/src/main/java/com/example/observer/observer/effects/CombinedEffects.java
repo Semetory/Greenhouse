@@ -10,11 +10,11 @@ import javafx.scene.paint.Color;
 
 public class CombinedEffects {
 
-    /**
-     * Создает комбинированный эффект для активного состояния
-     */
+    /*комбинированный эффект для активного состояния*/
+
     public static javafx.scene.effect.Effect createActiveServerEffect() {
-        // 1. Создаем DropShadow (внешняя тень)
+
+        //DropShadow внешняя тень
         DropShadow dropShadow = new DropShadow();
         dropShadow.setColor(Color.rgb(0, 150, 255, 0.7));
         dropShadow.setRadius(10);
@@ -22,20 +22,20 @@ public class CombinedEffects {
         dropShadow.setOffsetY(0);
         dropShadow.setSpread(0.5);
 
-        // 2. Создаем InnerShadow (внутренняя тень)
+        //InnerShadow внутренняя тень
         InnerShadow innerShadow = new InnerShadow();
         innerShadow.setColor(Color.rgb(0, 100, 200, 0.5));
         innerShadow.setRadius(5);
         innerShadow.setOffsetX(2);
         innerShadow.setOffsetY(2);
 
-        // 3. Создаем Lighting (освещение)
+        //Lighting освещение
         Lighting lighting = new Lighting();
         lighting.setLight(new javafx.scene.effect.Light.Distant(45, 45, Color.WHITE));
         lighting.setSurfaceScale(5.0);
         lighting.setDiffuseConstant(1.5);
 
-        // 4. Создаем PerspectiveTransform (перспектива)
+        //PerspectiveTransform перспектива
         PerspectiveTransform perspective = new PerspectiveTransform();
         perspective.setUlx(0);
         perspective.setUly(0);
@@ -46,28 +46,27 @@ public class CombinedEffects {
         perspective.setLlx(10);
         perspective.setLly(30);
 
-        // 5. Комбинируем эффекты через Blend
+        //Комбинируем эффекты через Blend
         Blend blend = new Blend();
         blend.setMode(BlendMode.MULTIPLY);
         blend.setTopInput(perspective);
         blend.setBottomInput(lighting);
 
-        // Устанавливаем цепочку эффектов
+        //Цепочка эффектов
         perspective.setInput(innerShadow);
         innerShadow.setInput(dropShadow);
 
         return blend;
     }
 
-    /**
-     * Создает эффект пульсации для активного элемента
-     */
+    /*Эффект пульсации для активного элемента*/
+
     public static javafx.scene.effect.Effect createPulsatingEffect() {
         DropShadow pulsatingShadow = new DropShadow();
         pulsatingShadow.setColor(Color.rgb(255, 100, 100, 0.8));
         pulsatingShadow.setRadius(15);
 
-        // Анимация пульсации
+        //Анимация пульсации
         javafx.animation.Timeline pulse = new javafx.animation.Timeline(
                 new javafx.animation.KeyFrame(javafx.util.Duration.ZERO,
                         new javafx.animation.KeyValue(pulsatingShadow.radiusProperty(), 10),
